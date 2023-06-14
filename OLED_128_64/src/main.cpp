@@ -11,6 +11,7 @@
 /*
  This code drives the OLED SSD1306 128x64
  Author: Ahmad Rehman 
+ June 14 2023
 */
 
 char *WIFI_SSID = "bucknell_iot"; // Holds Wifi SSID Name in Char
