@@ -7,28 +7,7 @@
 Thrilled to have you here and excited to share with you the projects that I have been working on.
 
 
- **  Mental Health App (Java):**
-       Mental health is a crucial factor in helping to improve well-being. Our missiong with this project is to create
-       a user friendly mental health app that empowers indivudals to take control over their well-being and provides them the tools
-       they need to improve their mental health journey. It is inteded to be used in an academic setting, which provides professors 
-       anonymous statisitcs on the class's mental health status. This intern will allow professors to make changes that can improve the overall
-       mental health of the students in class.
-
-     **Important Skills**
-      **OOP Design** 
-                             Proficient in object-oriented programming (OOP) principles to create robust and scalable software solutions.
-      ** JavaFx**
-                             Experienced in using JavaFx for building modern and interactive user interfaces.
-
-      **MVC Model**
-                             Well-versed in the Model-View-Controller (MVC) architectural pattern for designing modular and maintainable applications.
-      **UML diagrams**
-                             Skilled in creating Unified Modeling Language (UML) diagrams for visualizing and communicating software designs effectively.
-      **Agile/Scrum**
-                             Experienced in Agile and Scrum methodologies for efficient project management and collaboration.
-      **Git Version Control:**
-                             Proficient in using Git for version control, ensuring collaborative development and codebase management.
-
+  ![Block_Diagram_Agri-IoT](https://github.com/mar-056/beautiful.canvas/assets/103758905/7e52522f-8f35-4b88-9b94-7b7ed20978fe)
 
 ** ESP32-based IoT LoRa Node + Gateway (C++)**
 I am honored to be the recipient of the Reed Garman Award from Bucknell College of Engineering, chosen from among 1000 applicants. My winning proposal centers on the development of an affordable Agricultural IoT solution tailored for regions lacking networking infrastructure. Leveraging LoRa RF technology and a cost-effective satellite backup system, this project empowers farmers with seamless data collection and remote command capabilities via a user-friendly Node-Red dashboard, enhancing agricultural productivity and sustainability.
@@ -68,5 +47,29 @@ I am honored to be the recipient of the Reed Garman Award from Bucknell College 
 
 
                        
-         
+   **  Mental Health App (Java):**
+       Mental health is a crucial factor in helping to improve well-being. Our missiong with this project is to create
+       a user friendly mental health app that empowers indivudals to take control over their well-being and provides them the tools
+       they need to improve their mental health journey. It is inteded to be used in an academic setting, which provides professors 
+       anonymous statisitcs on the class's mental health status. This intern will allow professors to make changes that can improve the overall
+       mental health of the students in class.
+
+     **Important Skills**
+      **OOP Design** 
+                             Proficient in object-oriented programming (OOP) principles to create robust and scalable software solutions.
+      ** JavaFx**
+                             Experienced in using JavaFx for building modern and interactive user interfaces.
+
+      **MVC Model**
+                             Well-versed in the Model-View-Controller (MVC) architectural pattern for designing modular and maintainable applications.
+      **UML diagrams**
+                             Skilled in creating Unified Modeling Language (UML) diagrams for visualizing and communicating software designs effectively.
+      **Agile/Scrum**
+                             Experienced in Agile and Scrum methodologies for efficient project management and collaboration.
+      **Git Version Control:**
+                             Proficient in using Git for version control, ensuring collaborative development and codebase management.
+
+
+
+
    
