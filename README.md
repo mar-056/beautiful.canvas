@@ -6,7 +6,9 @@
 
 Thrilled to have you here and excited to share with you the projects that I have been working on.
 
-
+1. ESP32-based IoT LoRa Node + Gateway (C++)
+2. Mental Health App (Java)
+3. Lora GPS Tracker
   ![Block_Diagram_Agri-IoT](https://github.com/mar-056/beautiful.canvas/assets/103758905/7e52522f-8f35-4b88-9b94-7b7ed20978fe)
 
 ** ESP32-based IoT LoRa Node + Gateway (C++)**
@@ -69,7 +71,8 @@ I am honored to be the recipient of the Reed Garman Award from Bucknell College 
       **Git Version Control:**
                              Proficient in using Git for version control, ensuring collaborative development and codebase management.
 
-
-
+  ** Lora GPS Tracker**:
+  
+In this personal project, the focus was on creating a LoRa GPS tracker using an ESP32 microcontroller and implementing FreeRTOS for efficient multitasking. The C++ code developed for the ESP32 was responsible for reading GPS data and transmitting it via a LoRa module using UART communication. On the receiving end, a location viewer was established using Python and the Flask web framework. This viewer processed the incoming data and presented it through a user-friendly web interface. To visualize the GPS data effectively, the project incorporated the Google Maps API, allowing real-time tracking of the LoRa GPS Beacon's location. The use of Git for version control and Visual Studio Code for code development ensured a systematic approach to managing and advancing the project. This undertaking showcases the integration of embedded systems, wireless communication, web development, and mapping APIs in a single, cohesive project.
 
    
