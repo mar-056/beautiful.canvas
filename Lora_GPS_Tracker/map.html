@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Location on Google Maps</title>
+    <!-- Replace 'YOUR_API_KEY' with your actual Google Maps API key -->
+    <script>
+        function initMap() {
+            // Initialize the map
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 8
+            });
+
+            // Create an array to store references to markers
+            var markers = [];
+
+            function updateMap() {
+                // Fetch real-time coordinates from Flask using AJAX
+                fetch('/get_coordinates')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Remove old markers from the map
+                        markers.forEach(marker => marker.setMap(null));
+                        markers = [];
+
+                        // Create a new marker on the map
+                        var marker = new google.maps.Marker({
+                            position: { lat: data.latitude, lng: data.longitude },
+                            map: map,
+                            title: 'Current Location'
+                        });
+
+                        // Create an info window with the timestamp information
+                        var infoWindow = new google.maps.InfoWindow({
+                            content: 'Timestamp: ' + data.timestamp
+                        });
+
+                        // Attach the info window to the marker
+                        marker.addListener('click', function() {
+                            infoWindow.open(map, marker);
+                        });
+
+                        // Center the map on the new marker's position
+                        map.setCenter(marker.getPosition());
+
+                        // Add the new marker to the markers array
+                        markers.push(marker);
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            // Update the map every 15 seconds (adjust as needed)
+            setInterval(updateMap, 15000);
+        }
+    </script>
+    
+    <!-- Load the Google Maps API with the callback function -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIeuVZ4jgEEdVsdxk_M2GLbrAmIfRI2uQ&callback=initMap" async defer></script>
+</head>
+<body>
+    <div id="map" style="height: 400px;"></div>
+</body>
+</html>
+
+
+
+
