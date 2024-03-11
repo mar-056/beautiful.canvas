@@ -76,3 +76,18 @@ I am honored to be the recipient of the Reed Garman Award from Bucknell College 
 In this personal project, the focus was on creating a LoRa GPS tracker using an ESP32 microcontroller and implementing FreeRTOS for efficient multitasking. The C++ code developed for the ESP32 was responsible for reading GPS data and transmitting it via a LoRa module using UART communication. On the receiving end, a location viewer was established using Python and the Flask web framework. This viewer processed the incoming data and presented it through a user-friendly web interface. To visualize the GPS data effectively, the project incorporated the Google Maps API, allowing real-time tracking of the LoRa GPS Beacon's location. The use of Git for version control and Visual Studio Code for code development ensured a systematic approach to managing and advancing the project. This undertaking showcases the integration of embedded systems, wireless communication, web development, and mapping APIs in a single, cohesive project.
 
    
+ **MicroPython Remote (Mpremote) GUI**
+Overview
+
+MicroPython Remote (Mpremote) GUI is a graphical user interface designed to streamline the development process with MicroPython devices. It leverages the capabilities of the Mpremote tool, providing an intuitive and user-friendly interface for interacting with MicroPython devices remotely. Whether you're a beginner exploring MicroPython or an experienced developer, this GUI simplifies common tasks, making development faster and more accessible.
+
+Key Features
+Get Installed Lib: Explore the libraries installed on your MicroPython device effortlessly.
+
+Install Lib: Install MicroPython libraries seamlessly with a few clicks.
+
+Connect: Establish a connection to your MicroPython device quickly and efficiently.
+
+Reset Device: Perform a device reset effortlessly within the GUI.
+
+Run Script: Run MicroPython scripts on your device conveniently through the graphical interface.
