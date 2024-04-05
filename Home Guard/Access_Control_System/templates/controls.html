@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Control System</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Access Control System</h1>
+
+        <!-- Recent logs table -->
+        <h2>Recent Access Logs</h2>
+        <table id="logs-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Device ID</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Fingerprint ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated dynamically -->
+            </tbody>
+        </table>
+
+        <!-- View more logs button -->
+        <button class="btn" onclick="viewMoreLogs()">View More Logs</button>
+
+        <!-- Check User Permissions button -->
+        <button class="btn" onclick="checkUserPermissions()">Check User Permissions</button>
+
+        </div>
+        <input type="text" id="fingerprintId" class="text-input" placeholder="Enter Fingerprint ID">
+        <button class="btn" onclick="handleButtonClick()">Delete User</button>
+        <button class="btn" onclick="openFileSelector()">Add User</button>
+        </div>
+
+
+        <!-- User Permissions table -->
+        <table id="user-permissions-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Authorized Users</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function viewMoreLogs() {
+            // Send GET request to /last_5_events endpoint
+            fetch('/last_5_events')
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing table rows
+                    document.querySelector('#logs-table tbody').innerHTML = '';
+
+                    // Populate table with new data
+                    data.forEach(event => {
+                        const row = `
+                            <tr>
+                                <td>${event.id}</td>
+                                <td>${event.device_id}</td>
+                                <td>${event.time}</td>
+                                <td>${event.authentication_status}</td>
+                                <td>${event.fingerprint_id}</td>
+                            </tr>
+                        `;
+                        document.querySelector('#logs-table tbody').innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        
+        function handleButtonClick() {
+            // Your logic to handle button click
+            const fingerprintId = document.getElementById('fingerprintId').value;
+            
+            // Send GET request to delete user endpoint
+            fetch(`http://localhost:5000/delete_user?fingerprint_id=${fingerprintId}`)
+                .then(response => {
+                    if (response.ok) {
+                        alert('User Deleted');
+                    } else {
+                        alert('Failed to delete user.');
+                    }
+                })
+                .catch(error => console.error('Error deleting user:', error));
+        
+        }
+
+        function openFileSelector() {
+            // Create a file input element
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.bmp'; // Restrict to BMP files
+            
+            // Trigger click event to open file selector dialog
+            input.click();
+            
+            // Handle file selection
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    // Send GET request to add user endpoint with the selected file
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    fetch('http://localhost:5000/add_user', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('User added successfully.');
+                        } else {
+                            alert('Failed to add user.');
+                        }
+                    })
+                    .catch(error => console.error('Error adding user:', error));
+                }
+            };
+        }
+
+        function checkUserPermissions() {
+            // Send GET request to /return_user_permissions endpoint
+            fetch('/return_user_permissions')
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing table rows
+                    document.querySelector('#user-permissions-table tbody').innerHTML = '';
+
+                    // Populate table with user permissions
+                    data.forEach(permission => {
+                        const row = `
+                            <tr>
+                                <td>${permission[0]}</td>
+                            </tr>
+                        `;
+                        document.querySelector('#user-permissions-table tbody').innerHTML += row;
+                    });
+
+                    // Show the user permissions table
+                    document.getElementById('user-permissions-table').style.display = 'table';
+                })
+                .catch(error => console.error('Error fetching user permissions:', error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Control System</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #ff5555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #ff0000;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Form styles */
+        form {
+            margin-bottom: 20px;
+        }
+
+        /* Dropdown box styles */
+        select, button, input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Access Control System</h2>
+
+    <!-- Logout button -->
+    <form action="/logout" method="POST">
+        <button class="btn" type="submit">Logout</button>
+    </form>
+    
+    <!-- Form to select access location -->
+    <form action="/recent_events" method="POST">
+        <label for="access-location">Select Access Location:</label>
+        <select name="access-location" id="access-location">
+            <option value="Front Entrance">Front Entrance</option>
+            <option value="Back Exit">Back Exit</option>
+            <option value="Side Exit">Side Exit</option>
+        </select>
+        <button class="btn" type="submit">View Recent Events</button>
+    </form>
+
+    <!-- Button to pull user permissions -->
+    <form action="/pull_user_permissions" method="POST">
+        <button class="btn" type="submit">Pull User Permissions</button>
+    </form>
+    
+    <!-- Recent events table -->
+    <h3>Recent Events</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Access Location</th>
+                <th>Success/Fail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2024-03-29 10:00:00</td>
+                <td>Main Entrance</td>
+                <td>Success</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2024-03-29 10:05:00</td>
+                <td>Side Door</td>
+                <td>Fail</td>
+            </tr>
+            <!-- Add more rows for additional events -->
+        </tbody>
+    </table>
+
+    <!-- User permissions table -->
+    <h3>User Permissions</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Front Entrance</th>
+                <th>Back Exit</th>
+                <th>Side Exit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ahmad</td>
+                <td>Y</td>
+                <td>Y</td>
+                <td>Y</td>
+            </tr>
+            <tr>
+                <td>Ben</td>
+                <td>Y</td>
+                <td>N</td>
+                <td>N</td>
+            </tr>
+            <!-- Add more rows for additional users -->
+        </tbody>
+    </table>
+
+    <!-- Form to update user permissions -->
+    <h3>Update User Permissions</h3>
+    <form action="/update_user_permissions" method="POST">
+        <label for="user-name">User Name:</label>
+        <input type="text" name="user-name" id="user-name" required>
+        <label for="new-permissions">New Permissions:</label>
+        <input type="text" name="new-permissions" id="new-permissions" required>
+        <button class="btn" type="submit">Update Permissions</button>
+    </form>
+</body>
+</html>
