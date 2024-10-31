@@ -1,0 +1,9 @@
+[package]
+name = "hello_rust"  # Project name here
+version = "0.1.0"    # Version of your project
+edition = "2021"     # Rust edition, usually 2018 or 2021
+
+[dependencies]
+pnet = "0.30.0"      # Replace with the desired version of pnet
+
+
