@@ -23,5 +23,5 @@ To use the Mpremote GUI, follow these steps:
 
 2. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/mpremote-gui.git
+   git clone https://github.com/mar-056/beautiful.canvas/edit/main/mpremote_GUI/
    cd mpremote-gui
